@@ -13,6 +13,7 @@ function resetGame() {
     player.src = `images/image1.webp`;
     enemy.src = `images/image1.webp`;
     winner = false;
+    message.textContent = "Make a move";
 }
 
 function setImage(playerChoice, computerChoice) {
@@ -76,6 +77,7 @@ function computer_plays(playerChoice) {
 window.addEventListener("click", (e) => {
     if (winner) {
         resetGame();
+        return;
     }
     const playerChoice = Number(e.target.attributes[0].value);
     if (playerChoice) {
