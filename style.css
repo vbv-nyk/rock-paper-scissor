@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.message {
+    color: rgb(199, 41, 35);
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(168, 192, 128);
+}
+
+.rps-container {
+    display: flex;
+    gap: 2rem;
+    padding: 25px;
+}
+
+.player,
+.opponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.score {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+img {
+    height: 200px;
+    width: auto;
+}
