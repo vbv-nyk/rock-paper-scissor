@@ -5,12 +5,14 @@ const enemy = document.querySelector(".opponent img");
 const message = document.querySelector(".message");
 const playerScore = document.querySelector(".player .score");
 const opponentScore = document.querySelector(".opponent .score");
+let winner = false;
 
 function resetGame() {
     playerScore.textContent = 0;
     opponentScore.textContent = 0;
     player.src = `images/image1.webp`;
     enemy.src = `images/image1.webp`;
+    winner = false;
 }
 
 function setImage(playerChoice, computerChoice) {
@@ -59,10 +61,22 @@ function computer_plays(playerChoice) {
         }
     }
 
+    const finalPlayerScore = Number(playerScore.textContent);
+    const finalOpponentScore = Number(opponentScore.textContent);
 
+    if (finalPlayerScore === 5) {
+        winner = true;
+        message.textContent = "You've won the game";
+    } else if (finalOpponentScore === 5) {
+        winner = true;
+        message.textContent = "Computer has won this game";
+    }
 }
 
 window.addEventListener("click", (e) => {
+    if (winner) {
+        resetGame();
+    }
     const playerChoice = Number(e.target.attributes[0].value);
     if (playerChoice) {
         computer_plays(playerChoice);
